@@ -1,0 +1,4 @@
+<button class="btn btn-primary" (click)="onGetEvents()">Get Events</button>
+<a href="#" [routerLink]="['/admin/activiteiten/nieuw']" class="btn btn-primary">Nieuwe Activiteit</a>
+<hr>
+<app-event *ngFor="let event of events" [event]="event" (eventDeleted)="onDeleted($event)"></app-event>

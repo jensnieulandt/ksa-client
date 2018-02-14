@@ -1,0 +1,16 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand" [routerLink]="['/planning']">KSA Parsival - Planning</a>
+      </div>
+
+      <ul class="nav navbar-nav">
+        <li><a *ngIf="authService.loggedIn()" href="#" [routerLink]="['/admin']">Activiteiten</a></li>
+        <li><a *ngIf="authService.loggedIn() && authService.admin()" href="#" [routerLink]="['/admin/leiding']">Leiding</a></li>
+        <li><a *ngIf="authService.loggedIn()" href="#" [routerLink]="['/admin/leden']">Leden</a></li>
+        <li><a *ngIf="authService.loggedIn()" href="/admin" (click)="onLogout()">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

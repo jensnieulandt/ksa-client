@@ -1,0 +1,13 @@
+<md-card>
+  <md-card-title [innerHTML]="event.title"></md-card-title>
+  <md-card-subtitle>
+    <span *ngIf="!startEqualsEnd && event.allDay != 1">{{event.start | date:'dd MMMM yyyy'}} - {{event.start | date:"HH:mm"}} uur | {{event.end | date:'dd MMMM yyyy'}} - {{event.end | date:"HH:mm"}} uur</span>
+    <span *ngIf="!startEqualsEnd && event.allDay == 1">{{event.start | date:'dd MMMM yyyy'}}</span>
+    <span *ngIf="startEqualsEnd">{{event.start | date:'dd MMMM yyyy'}} | {{event.start | date:"HH:mm"}} uur - {{event.end | date:"HH:mm"}} uur</span>
+  </md-card-subtitle>
+  <md-card-content></md-card-content>
+  <md-card-actions>
+    <a href="#" [routerLink]="['/admin/activiteiten/' + event.id + '/bewerk']" class="btn btn-primary">Edit</a>
+    <button class="btn btn-danger" (click)="onDelete()">Delete</button>
+  </md-card-actions>
+</md-card>

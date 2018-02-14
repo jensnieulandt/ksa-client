@@ -1,0 +1,65 @@
+<form *ngIf="event" #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <div [hidden]="!authService.admin()">
+    <div class="form-group">
+      <label for="id">event_id</label>
+      <input type="number" id="id" name="id" class="form-control" [ngModel]="event.id">
+    </div>
+    <div class="form-group">
+      <label for="event_type_id">event_type_id</label>
+      <input type="number" id="event_type_id" name="event_type_id" class="form-control" [ngModel]="event.event_type_id">
+    </div>
+    <div class="form-group">
+      <label for="group_id">group_id</label>
+      <input type="number" id="group_id" name="group_id" class="form-control" [ngModel]="event.group_id">
+    </div>
+    <div class="form-group">
+      <label for="user_id">user_id</label>
+      <input type="number" id="user_id" name="user_id" class="form-control" [ngModel]="event.user_id">
+    </div>
+    <div class="form-group">
+      <label for="last_updated_by">last_updated_by</label>
+      <input type="text" id="last_updated_by" name="last_updated_by" class="form-control" value="{{currentUserId}}">
+    </div>
+    <div class="form-group">
+      <label for="published">published</label>
+      <input type="text" id="published" name="published" class="form-control" [ngModel]="event.published">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="title">Onderwerp</label>
+    <input type="text" id="title" name="title" class="form-control" [ngModel]="event.title">
+  </div>
+  <div class="form-group">
+    <label for="start">Start vergadering</label>
+    <input type="text" id="start" name="start" class="form-control" [ngModel]="event.start">
+  </div>
+  <div class="form-group">
+    <label for="end">Einde vergadering</label>
+    <input type="text" id="end" name="end" class="form-control" [ngModel]="event.end">
+  </div>
+  <div class="form-group">
+    <label for="description">Omschrijving</label>
+    <app-editor [elementId]="'description'" [content]="event.description" (contentChange)="onContentChange($event)"
+                (onEditorKeyup)="onKeyup($event)"></app-editor>
+  </div>
+  <div [hidden]="!authService.superadmin()">
+    <input type="text" id="url" name="url" class="form-control" [ngModel]="event.url">
+    <input type="text" id="className" name="className" class="form-control" [ngModel]="event.className">
+    <input type="text" id="editable" name="end" class="form-control" [ngModel]="event.editable">
+    <input type="text" id="startEditable" name="end" class="form-control" [ngModel]="event.startEditable">
+    <input type="text" id="durationEditable" name="durationEditable" class="form-control"
+           [ngModel]="event.durationEditable">
+    <input type="text" id="recourceEditable" name="recourceEditable" class="form-control"
+           [ngModel]="event.recourceEditable">
+    <input type="text" id="rendering" name="rendering" class="form-control" [ngModel]="event.rendering">
+    <input type="text" id="overlap" name="overlap" class="form-control" [ngModel]="event.overlap">
+    <input type="text" id="constraint" name="constraint" class="form-control" [ngModel]="event.constraint">
+    <input type="text" id="source" name="source" class="form-control" [ngModel]="event.source">
+    <input type="text" id="color" name="color" class="form-control" [ngModel]="event.color">
+    <input type="text" id="backgroundColor" name="backgroundColor" class="form-control"
+           [ngModel]="event.backgroundColor">
+    <input type="text" id="borderColor" name="borderColor" class="form-control" [ngModel]="event.borderColor">
+    <input type="text" id="textColor" name="textColor" class="form-control" [ngModel]="event.textColor">
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>

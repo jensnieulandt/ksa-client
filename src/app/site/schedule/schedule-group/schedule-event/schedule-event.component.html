@@ -1,0 +1,11 @@
+<md-card>
+  <md-card-title [innerHTML]="event.title"></md-card-title>
+  <md-card-subtitle>
+    <span *ngIf="!startEqualsEnd && event.allDay != 1">{{event.start | date:'dd MMMM yyyy'}} - {{event.start | date:"HH:mm"}} uur | {{event.end | date:'dd MMMM yyyy'}} - {{event.end | date:"HH:mm"}} uur</span>
+    <span *ngIf="!startEqualsEnd && event.allDay == 1">{{event.start | date:'dd MMMM yyyy'}}</span>
+    <span *ngIf="startEqualsEnd">{{event.start | date:'dd MMMM yyyy'}} | {{event.start | date:"HH:mm"}} uur - {{event.end | date:"HH:mm"}} uur</span>
+  </md-card-subtitle>
+  <md-card-content [innerHTML]="event.description"></md-card-content>
+  <img style="width: 200px;" md-card-image *ngFor="let image of images" [src]="image.path">
+</md-card>
+

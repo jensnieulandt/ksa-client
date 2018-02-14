@@ -1,0 +1,70 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <div [hidden]="!authService.admin()">
+    <div class="form-group">
+      <label for="event_type_id">event_type_id</label>
+      <input type="number" id="event_type_id" name="event_type_id" class="form-control" value="1" required>
+    </div>
+    <div class="form-group">
+      <label for="group_id">group_id</label>
+      <input type="number" id="group_id" name="group_id" class="form-control" value="{{currentUserGroupId}}" required>
+    </div>
+    <div class="form-group">
+      <label for="user_id">user_id</label>
+      <input type="number" id="user_id" name="user_id" class="form-control" value="{{currentUserId}}" required>
+    </div>
+    <div class="form-group">
+      <label for="last_updated_by">last_updated_by</label>
+      <input type="text" id="last_updated_by" name="last_updated_by" class="form-control" value="{{currentUserId}}"
+             required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="title">Onderwerp</label>
+    <input type="text" id="title" name="title" class="form-control" required ngModel #titleInput>
+  </div>
+  <div class="form-group">
+    <label for="start">Start vergadering</label>
+    <input type="text" id="start" name="start" class="form-control" required ngModel #startInput>
+  </div>
+
+  <md-input-container>
+    <input mdInput [mdDatepicker]="start" placeholder="Start Vergadering">
+    <button mdSuffix [mdDatepickerToggle]="start"></button>
+  </md-input-container>
+  <md-datepicker #start></md-datepicker>
+
+  <div class="form-group">
+    <label for="end">Einde vergadering</label>
+    <input type="text" id="end" name="end" class="form-control" required ngModel #endInput>
+  </div>
+  <div class="form-group">
+    <label for="description">Omschrijving</label>
+    <app-editor [elementId]="'description'" [content]=""
+                (onEditorKeyup)="onKeyup($event)"></app-editor>
+  </div>
+  <div [hidden]="!authService.superadmin()">
+    <input type="text" id="url" name="url" class="form-control">
+    <input type="text" id="className" name="className" class="form-control">
+    <input type="text" id="editable" name="end" class="form-control">
+    <input type="text" id="startEditable" name="end" class="form-control">
+    <input type="text" id="durationEditable" name="durationEditable" class="form-control">
+    <input type="text" id="recourceEditable" name="recourceEditable" class="form-control">
+    <input type="text" id="rendering" name="rendering" class="form-control">
+    <input type="text" id="overlap" name="overlap" class="form-control">
+    <input type="text" id="constraint" name="constraint" class="form-control">
+    <input type="text" id="source" name="source" class="form-control">
+    <input type="text" id="color" name="color" class="form-control">
+    <input type="text" id="backgroundColor" name="backgroundColor" class="form-control">
+    <input type="text" id="borderColor" name="borderColor" class="form-control">
+    <input type="text" id="textColor" name="textColor" class="form-control">
+  </div>
+  <h1>{{ titleInput.value }}</h1>
+  <h1>{{ startInput.value }}</h1>
+  <h1>{{ endInput.value }}</h1>
+  <h1>{{ description }}</h1>
+  <div class="form-group">
+    <label for="published">published</label>
+    <input type="checkbox" id="published" name="published">
+  </div>
+  <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+</form>
