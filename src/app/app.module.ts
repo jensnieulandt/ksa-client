@@ -28,8 +28,8 @@ import {PageNotFoundComponent} from './page-not-found-component'
 import {AuthGuardService} from './auth-guard.service';
 import { EditorComponent } from './editor/editor.component';
 import { ArticleComponent } from './site/home/article/article.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MaterialModule, MdNativeDateModule} from '@angular/material';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatNativeDateModule, MatCardModule, MatDatepickerModule, MatInputModule, MatTabsModule} from '@angular/material';
 import { ShowEventComponent } from './site/home/show-event/show-event.component';
 import { ScheduleComponent } from './site/schedule/schedule.component';
 import { ScheduleTabsComponent } from './site/schedule/schedule-tabs/schedule-tabs.component';
@@ -72,8 +72,11 @@ import { GroupsService } from './groups.service';
     FormsModule,
     routing,
     BrowserAnimationsModule,
-    MaterialModule,
-    MdNativeDateModule
+    MatNativeDateModule,
+    MatCardModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatTabsModule
   ],
   providers: [EventService, AuthService, AuthGuardService, GroupsService, { provide: LOCALE_ID, useValue: 'nl-BE' }],
   bootstrap: [AppComponent]

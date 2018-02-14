@@ -27,11 +27,11 @@
     <input type="text" id="start" name="start" class="form-control" required ngModel #startInput>
   </div>
 
-  <md-input-container>
-    <input mdInput [mdDatepicker]="start" placeholder="Start Vergadering">
-    <button mdSuffix [mdDatepickerToggle]="start"></button>
-  </md-input-container>
-  <md-datepicker #start></md-datepicker>
+  <mat-input-container>
+    <input matInput [matDatepicker]="start" placeholder="Start Vergadering">
+    <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+  </mat-input-container>
+  <mat-datepicker #start></mat-datepicker>
 
   <div class="form-group">
     <label for="end">Einde vergadering</label>

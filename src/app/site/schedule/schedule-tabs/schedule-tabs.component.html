@@ -1,5 +1,5 @@
-<md-tab-group>
-  <md-tab *ngFor="let group of groups" label="{{ group.title.toUpperCase() }}">
+<mat-tab-group>
+  <mat-tab *ngFor="let group of groups" label="{{ group.title.toUpperCase() }}">
     <app-schedule-group [groupId]="group.id"></app-schedule-group>
-  </md-tab>
-</md-tab-group>
+  </mat-tab>
+</mat-tab-group>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MdDatepickerModule} from '@angular/material';
+import {MatDatepickerModule} from '@angular/material';
 
 @Component({
   selector: 'app-show-event',
