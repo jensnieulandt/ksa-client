@@ -78,7 +78,7 @@ import { GroupsService } from './groups.service';
     MatInputModule,
     MatTabsModule
   ],
-  providers: [EventService, AuthService, AuthGuardService, GroupsService, { provide: LOCALE_ID, useValue: 'nl-BE' }],
+  providers: [EventService, AuthService, AuthGuardService, GroupsService, { provide: LOCALE_ID, useValue: 'en-US' }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
